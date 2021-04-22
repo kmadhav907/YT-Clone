@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MenuSharpIcon from '@material-ui/icons/MenuSharp';
 import './Header.css';
 import headerLogo from '../assets/youtube.svg';
@@ -25,7 +26,7 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    if (searchClicked) {
+    if (searchClicked && message) {
       alert(message);
       setSearchClicked(!searchClicked);
     }
@@ -34,7 +35,9 @@ const Header = () => {
     <div className='header'>
       <div className='header__left'>
         <MenuSharpIcon />
-        <img src={headerLogo} className='header__logo'></img>
+        <Link to='/'>
+          <img src={headerLogo} className='header__logo'></img>
+        </Link>
       </div>
       <div className='header__input'>
         <input
